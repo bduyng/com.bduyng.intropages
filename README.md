@@ -1,10 +1,53 @@
-# Alloy Intro Pages Widget - Tests
+# Alloy Intro Pages [![Appcelerator Alloy](http://www-static.appcelerator.com/badges/alloy-git-badge-sq.png)](http://appcelerator.com/alloy/)
 
-This is the test branch for the [Alloy](http://appcelerator.com/alloy) [Intro Pages](https://github.com/bduyng/com.bduyng.intropages/tree/master).
+An [Alloy](http://appcelerator.com/alloy) [Widget](http://docs.appcelerator.com/titanium/latest/#!/guide/Alloy_Widgets) to to create welcome pages like [AirBnB](https://itunes.apple.com/us/app/airbnb/id401626263?mt=8) application.
 
 * Source code: [https://github.com/bduyng/com.bduyng.intropages/tree/master](https://github.com/bduyng/com.bduyng.intropages/tree/master)
 * Test app: [https://github.com/bduyng/com.bduyng.intropages/tree/test](https://github.com/bduyng/com.bduyng.intropages/tree/test)
 
+## Get it [![gitTio](http://gitt.io/badge.png)](http://gitt.io/component/com.bduyng.intropages)
+
+Install via [gitTio](http://gitt.io/component/com.bduyng.intropages):
+
+	$ gittio install com.bduyng.intropages
+
+Or download a [release](https://github.com/bduyng/com.bduyng.intropages/releases), extract it to your app's `app/widgets/com.bduyng.intropages` folder and add the dependency to your `config.json`:
+
+	{
+		..
+		"dependencies": {
+			"com.bduyng.intropages": "*"
+			..
+		}
+	}	
+
+## Use it
+
+Feel free to modify if need.
+
+### index.js
+    var data = [
+		{
+			image : '1.png',
+			text : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+		},
+		{
+			image : '2.png',
+			text : 'Ut enim ad minim veniam, quis nostrud exercitation ullamco.'
+		},
+		{
+			image : '3.png',
+			text : 'Duis aute irure dolor in reprehenderit in voluptate velit esse.'
+		}
+	];
+
+	$.index.init(data);
+
+	$.index.container.open();
+
+
+### Screenshot
+ 
 ## License
 
 	The MIT License (MIT)
