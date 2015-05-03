@@ -47,6 +47,7 @@ Feel free to modify if need.
 
 
 ### Screenshot
+![Screenshot](https://github.com/bduyng/com.bduyng.intropages/blob/test/demo.gif?raw=true)
  
 ## License
 
