@@ -69,6 +69,6 @@ function transition(nextIndex, opacity) {
 	front.animate({
 		opacity : opacity
 	}, function (e) {
-		front.opacity = e.source.opacity;
+		front.opacity = opacity;
 	})
 }
