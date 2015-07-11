@@ -2,13 +2,13 @@
 	theme: "Theme.AppCompat.Translucent.NoTitleBar"
 },
 "#view0" : {
-	height : ((((Ti.Platform.displayCaps.platformWidth) / 640) * 1136) / (Titanium.Platform.displayCaps.dpi / 160)),
+	height : Ti.UI.FILL,
 	width : Ti.UI.FILL,
 	zIndex : 0,
 	opacity : 1
 },
 "#view1" : {
-	height : ((((Ti.Platform.displayCaps.platformWidth) / 640) * 1136) / (Titanium.Platform.displayCaps.dpi / 160)),
+	height : Ti.UI.FILL,
 	width : Ti.UI.FILL,
 	zIndex : 1,
 	opacity : 1
