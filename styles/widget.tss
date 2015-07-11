@@ -1,10 +1,15 @@
+"#container[platform=android]": {
+	theme: "Theme.AppCompat.Translucent.NoTitleBar"
+},
 "#view0" : {
-	height : Ti.UI.FILL,
+	height : ((((Ti.Platform.displayCaps.platformWidth) / 640) * 1136) / (Titanium.Platform.displayCaps.dpi / 160)),
+	width : Ti.UI.FILL,
 	zIndex : 0,
 	opacity : 1
 },
 "#view1" : {
-	height : Ti.UI.FILL,
+	height : ((((Ti.Platform.displayCaps.platformWidth) / 640) * 1136) / (Titanium.Platform.displayCaps.dpi / 160)),
+	width : Ti.UI.FILL,
 	zIndex : 1,
 	opacity : 1
 },
@@ -14,5 +19,7 @@
 	height : "25%",
 	showPagingControl : true,
 	pagingControlColor : "transparent",
-	zIndex : 2
+	zIndex : 2,
+	pagingControlBackgroundColor:"transparent",
+	pagingControlDotImage: WPATH("/images/white_paging_control_dot.png")
 }

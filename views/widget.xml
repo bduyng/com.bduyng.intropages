@@ -3,8 +3,7 @@
 		<View>
 			<ImageView id="view0"></ImageView>
 			<ImageView id="view1"></ImageView>
-			<ScrollableView id="description">
-			</ScrollableView>
+			<Widget id="description" src="au.jkotchoff.scrollableView" />
 		</View>
 	</Window>
 </Alloy>
