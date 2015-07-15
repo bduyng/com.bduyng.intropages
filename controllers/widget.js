@@ -4,6 +4,14 @@ var previousIndex = 0;
 exports.init = function (data) {
 	var views = [];
 	
+	if(OS_ANDROID) {
+		var imageBlob = Ti.UI.createImageView({image: data[0].image}).toBlob();
+		var originalImageWidth = imageBlob.width;
+		var originalImageHeight = imageBlob.height;
+		var heightFullScreen = ((((Ti.Platform.displayCaps.platformWidth) / originalImageWidth) * originalImageHeight) / (Titanium.Platform.displayCaps.dpi / 160));
+		$.view0.height = $.view1.height = heightFullScreen;
+	}
+
 	for (var i = 0, j = data.length; i < j; i++) {
 		// generate image
 		images.push(data[i].image);
