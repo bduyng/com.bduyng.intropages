@@ -2,6 +2,9 @@
 
 An [Alloy](http://appcelerator.com/alloy) [Widget](http://docs.appcelerator.com/titanium/latest/#!/guide/Alloy_Widgets) to to create welcome pages like [AirBnB](https://itunes.apple.com/us/app/airbnb/id401626263?mt=8) application.
 
+### Screenshot
+![Screenshot](https://github.com/bduyng/com.bduyng.intropages/blob/test/demo.gif?raw=true)
+
 * Source code: [https://github.com/bduyng/com.bduyng.intropages/tree/master](https://github.com/bduyng/com.bduyng.intropages/tree/master)
 * Test app: [https://github.com/bduyng/com.bduyng.intropages/tree/test](https://github.com/bduyng/com.bduyng.intropages/tree/test)
 
@@ -55,8 +58,12 @@ Feel free to modify if need.
 * 2.0 Add Android Support with [ScrollableView widget](https://github.com/jkotchoff/au.<jkotchoff class="scro"></jkotchoff>llableView)
 * 2.0.1 Add a Titanium Classic version: use the "fadingScrollable.js" file
 
-### Screenshot
-![Screenshot](https://github.com/bduyng/com.bduyng.intropages/blob/test/demo.gif?raw=true)
+## Author
+
+**Duy Bao Nguyen**  
+<!-- web: http://www.napp.dk   -->
+email: bduyng@gmail.com  
+twitter: @bduyng  
  
 ## License
 
