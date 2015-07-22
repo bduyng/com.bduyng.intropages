@@ -5,6 +5,9 @@ An [Alloy](http://appcelerator.com/alloy) [Widget](http://docs.appcelerator.com/
 * Source code: [https://github.com/bduyng/com.bduyng.intropages/tree/master](https://github.com/bduyng/com.bduyng.intropages/tree/master)
 * Test app: [https://github.com/bduyng/com.bduyng.intropages/tree/test](https://github.com/bduyng/com.bduyng.intropages/tree/test)
 
+### Screenshot
+![Screenshot](https://github.com/bduyng/com.bduyng.intropages/blob/test/demo.gif?raw=true)
+
 ## Get it [![gitTio](http://gitt.io/badge.png)](http://gitt.io/component/com.bduyng.intropages)
 
 Install via [gitTio](http://gitt.io/component/com.bduyng.intropages):
@@ -50,9 +53,6 @@ Feel free to modify if need.
 * 1.0.0 Initial version
 * 2.0.0 Add Android Support with [ScrollableView widget](https://github.com/jkotchoff/au.<jkotchoff class="scro"></jkotchoff>llableView)
 * 2.1.0 Fix ImageView aspect ratio in Android
-
-### Screenshot
-![Screenshot](https://github.com/bduyng/com.bduyng.intropages/blob/test/demo.gif?raw=true)
  
 ## License
 
