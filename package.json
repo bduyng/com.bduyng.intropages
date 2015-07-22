@@ -1,0 +1,41 @@
+{
+  "version": "2.1.0",
+  "appc-npm": {
+    "config": {
+      "com.bduyng.intropages": "2.1.0"
+    },
+    "target": {
+      "alloy": "app/widgets/com.bduyng.intropages"
+    },
+    "ignore": [
+      "package.json"
+    ]
+  },
+  "description": "An Alloy widget to create welcome pages like AirBnB application.",
+  "author": "Duy Bao Nguyen",
+  "license": "Apache License, Version 2.0",
+  "name": "com.bduyng.intropages",
+  "keywords": [
+    "airbnb",
+    "alloy",
+    "alloy-widget",
+    "appc-npm",
+    "appcelerator",
+    "intro",
+    "pages",
+    "slide",
+    "tutorial",
+    "welcome"
+  ],
+  "scripts": {
+    "postinstall": "node ./appc-npm"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bduyng/com.bduyng.intropages"
+  },
+  "bugs": {
+    "url": "https://github.com/bduyng/com.bduyng.intropages/issues"
+  },
+  "homepage": "github.com/bduyng/com.bduyng.intropages#readme"
+}

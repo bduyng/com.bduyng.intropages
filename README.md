@@ -47,9 +47,9 @@ Feel free to modify if need.
 
 ## Changelog
 
-* 1.0 Initial version
-* 2.0 Add Android Support with [ScrollableView widget](https://github.com/jkotchoff/au.<jkotchoff class="scro"></jkotchoff>llableView)
-* 2.1 Fix ImageView aspect ratio in Android
+* 1.0.0 Initial version
+* 2.0.0 Add Android Support with [ScrollableView widget](https://github.com/jkotchoff/au.<jkotchoff class="scro"></jkotchoff>llableView)
+* 2.1.0 Fix ImageView aspect ratio in Android
 
 ### Screenshot
 ![Screenshot](https://github.com/bduyng/com.bduyng.intropages/blob/test/demo.gif?raw=true)
