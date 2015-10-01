@@ -3,7 +3,7 @@ var previousIndex = 0;
 
 exports.init = function (data) {
 	var views = [];
-	
+
 	for (var i = 0, j = data.length; i < j; i++) {
 		// generate image
 		images.push(data[i].image);
@@ -58,14 +58,14 @@ function scrollendListener(e) {
 
 function transition(nextIndex, opacity) {
 	if (nextIndex < 0 || nextIndex > images.length - 1) return false;
-	
+
 	var front = $.view0.zIndex === 0 ? $.view1 : $.view0;
 	if (front.opacity === opacity) return false;
-	
+
 	var behind = $.view0.zIndex === 0 ? $.view0 : $.view1;
 	if (behind.opacity !== 1) behind.opacity = 1;
 	if (behind.image !== images[nextIndex]) behind.image = images[nextIndex];
-	
+
 	front.animate({
 		opacity : opacity
 	}, function (e) {
