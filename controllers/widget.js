@@ -1,9 +1,10 @@
+var args = arguments[0] || {};
+
 var images = [];
 var previousIndex = 0;
 
 exports.init = function (data) {
 	var views = [];
-	
 	if(OS_ANDROID) {
 		var imageBlob = Ti.UI.createImageView({image: data[0].image}).toBlob();
 		var originalImageWidth = imageBlob.width;
@@ -15,19 +16,27 @@ exports.init = function (data) {
 	for (var i = 0, j = data.length; i < j; i++) {
 		// generate image
 		images.push(data[i].image);
+		
+		var content = data[i];
+		
+		if (args.font && !content.font){
+			content.font = args.font;
+		}
+		if (args.color && !content.color){
+			content.color = args.color;
+		}
+		
+		if (args.titleFont && !content.titleFont){
+			content.titleFont = args.titleFont;
+		}
+		if (args.titleColor && !content.titleColor){
+			content.titleColor = args.titleColor;
+		}
 
 		// generate scrollableView children
-		var contentView = Ti.UI.createView();
-		contentView.add(Ti.UI.createLabel({
-			text : data[i].text,
-			color : 'white',
-			font : {
-				fontFamily : 'Quicksand',
-				fontSize : '20sp'
-			},
-			textAlign : 'center'
-		}))
-		views.push(contentView);
+		var contentView = Widget.createController('contentView', {data: content});
+		
+		views.push(contentView.getView());
 	}
 
 	$.view0.image = images[1];
@@ -36,13 +45,17 @@ exports.init = function (data) {
 	$.description.setViews(views);
 	$.description.addEventListener('scroll', scrollListener);
 	$.description.addEventListener('scrollend', scrollendListener);
-
-}
+};
 
 exports.detach = function () {
 	$.description.removeEventListener('scroll', scrollListener);
 	$.description.removeEventListener('scrollend', scrollendListener);
-}
+};
+
+exports.moveNext = function(){
+	$.description.moveNext();
+};
+
 
 function scrollListener(e) {
 	if (e.currentPageAsFloat.toFixed(2) <= 0 || e.currentPageAsFloat.toFixed(2) >= images.length - 1) return false;
@@ -62,6 +75,7 @@ function scrollendListener(e) {
 
 	behind.zIndex = 0;
 	front.zIndex = 1;
+	$.trigger('page', e.currentPage);
 }
 
 function transition(nextIndex, opacity) {
@@ -78,5 +92,6 @@ function transition(nextIndex, opacity) {
 		opacity : opacity
 	}, function (e) {
 		front.opacity = opacity;
-	})
-}
+	});
+};
+
