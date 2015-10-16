@@ -55,6 +55,9 @@ exports.detach = function () {
 exports.moveNext = function(){
 	$.description.moveNext();
 };
+exports.movePrevious = function(){
+	$.description.movePrevious();
+};
 
 
 function scrollListener(e) {
