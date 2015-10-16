@@ -2,7 +2,7 @@
   "version": "2.1.0",
   "appc-npm": {
     "config": {
-      "com.bduyng.intropages": "2.1.0"
+      "com.bduyng.intropages": "3.0.0"
     },
     "target": {
       "alloy": "app/widgets/com.bduyng.intropages"
