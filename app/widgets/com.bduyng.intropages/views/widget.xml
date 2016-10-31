@@ -1,10 +1,7 @@
 <Alloy>
-	<Window id="container">
-		<View>
-			<ImageView id="view0"></ImageView>
-			<ImageView id="view1"></ImageView>
-			<ScrollableView id="description">
-			</ScrollableView>
-		</View>
-	</Window>
+    <Window id="container">
+        <View id="backgroundsContainer" />
+
+        <ScrollableView id="titlesContainer" onScroll="onScroll"/>
+    </Window>
 </Alloy>
