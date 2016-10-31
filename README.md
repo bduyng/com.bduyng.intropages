@@ -14,18 +14,18 @@ An [Alloy](http://appcelerator.com/alloy) [Widget](http://docs.appcelerator.com/
 
 Install via [gitTio](http://gitt.io/component/com.bduyng.intropages):
 
-	$ gittio install com.bduyng.intropages
+    $ gittio install com.bduyng.intropages
 
 Or download a [release](https://github.com/bduyng/com.bduyng.intropages/releases), extract it to your app's `app/widgets/com.bduyng.intropages` folder and add the dependency to your `config.json`:
 
-	{
-		..
-		"dependencies": {
-			"com.bduyng.intropages": "*",
-			"au.jkotchoff.scrollableView": "*"
-			..
-		}
-	}	
+    {
+        ..
+        "dependencies": {
+            "com.bduyng.intropages": "*",
+            "au.jkotchoff.scrollableView": "*"
+            ..
+        }
+    }   
 
 ## Use it
 
@@ -34,64 +34,71 @@ Requires `au.jkotchoff.scrollableView` to be installed too.
 
 ### index.xml
 
-	<Alloy>
-		<Window>
-			<Widget src="com.bduyng.intropages" id="introPages" onPage="newPage"></Widget>
-		</Window>
-	</Alloy>
+    <Alloy>
+        <Widget id="intro" src="com.bduyng.intropages"></Widget>
+    </Alloy>
+
 
 ### index.tss
 
-	"#introPages": {
-		color: '#666666',
-		titleColor: '#333333',
-		font: {
-			fontFamily: 'Quicksand',
-			fontSize: 14
-		},
-		titleFont: {
-			fontFamily: 'Quicksand',
-			fontSize: 19
-		}
-	}
+    "#intro": {
+        /**
+         * This should be an array with all the views and their options
+         * @type {Array}
+         */
+        views: [
+            {
+                /**
+                 * This will be the primary text of page onboarding.
+                 * @type {[String]}
+                 */
+                title: "LOREM IPSUM\nDOLOR SIT",
+                
+                /**
+                 * This will be secondary text that will further explain the feature.
+                 * @type {[String]}
+                 */
+                description: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.",
+                
+                /**
+                 * Local or remote url / can be video or image.
+                 * The media which will be shown in the background of the screen.
+                 * Video should automatically play after view transition.
+                 * @type {[String]}
+                 */
+                media: "/images/intro/1.png"
+            },
+            {
+                title: "PROIN GRAVIDA\nVELIT NISL, EGET",
+                description: "Donec fermentum nisl nec ligula placerat, a convallis mi rutrum.",
+                media: "/images/intro/2.png"
+            },
+            {
+                title: "NULLAM LIBERO\nTURPIS",
+                description: "Fusce massa neque, gravida suscipit lorem a, vehicula convallis orci.",
+                media: "/images/intro/3.png"
+            }
+        ],
+        titles: {
+            left: 20, right: 50, bottom: 150,
+            color: "white",
+            font: {
+                fontSize: 30,
+                fontWeight: "bold"
+            }
+        },
+        descriptions: {
+            left: 20, right: 50, bottom: 90,
+            color: "white",
+            font: {
+                fontSize: 16
+            }
+        }
+    }
 
 
 ### index.js
-    var data = [
-		{
-			image : "1.png",
-			text : "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-			title: "Title 1"
-		},
-		{
-			image : "2.png",
-			text : "Ut enim ad minim veniam, quis nostrud exercitation ullamco."
-		},
-		{
-			image : "3.png",
-			text : "Duis aute irure dolor in reprehenderit in voluptate velit esse.",
-			title: "Title 3"
-		}
-	];
-
-	$.introPages.init(data);
-
-	$.getView().open();
-	
-	function newPage(page){
-		// calls this function when a new page is loaded
-	}
-	
-	// two functions below require the latest version `au.jkotchoff.scrollableView`
-	
-	// function dedicated to programmatically move to the next page, useful for "next" buttons
-	function goToNext(){
-		$.introPages.moveNext();
-	}
-	// function dedicated to programmatically move to the previous page, useful for "previous" buttons
-	function goToPrevious(){
-		$.introPages.movePrevious();
-	}
+    $.intro.open();
 
 ## Changelog
 
@@ -104,24 +111,24 @@ Requires `au.jkotchoff.scrollableView` to be installed too.
  
 ## License
 
-	The MIT License (MIT)
-	
-	Copyright (c) 2015 Duy Bao Nguyen
-	
-	Permission is hereby granted, free of charge, to any person obtaining a copy
-	of this software and associated documentation files (the "Software"), to deal
-	in the Software without restriction, including without limitation the rights
-	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-	copies of the Software, and to permit persons to whom the Software is
-	furnished to do so, subject to the following conditions:
-	
-	The above copyright notice and this permission notice shall be included in all
-	copies or substantial portions of the Software.
-	
-	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-	SOFTWARE.
+    The MIT License (MIT)
+    
+    Copyright (c) 2015 Duy Bao Nguyen
+    
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+    
+    The above copyright notice and this permission notice shall be included in all
+    copies or substantial portions of the Software.
+    
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+    SOFTWARE.
