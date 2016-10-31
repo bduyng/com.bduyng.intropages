@@ -95,10 +95,12 @@ Requires `au.jkotchoff.scrollableView` to be installed too.
 
 ## Changelog
 
-* 1.0.0 Initial version
-* 2.0.0 Add Android Support with [ScrollableView widget](https://github.com/jkotchoff/au.<jkotchoff class="scro"></jkotchoff>llableView)
+* 4.0.0 Rewrite the widget with simple animation logic, better performance.
+* 3.0.0 Complete overhaul of the widget, added customisation and cleaned up code. Not backwards compatible, as the widget main view is no longer a Window.
 * 2.1.0 Fix ImageView aspect ratio in Android
-* 3.0.0 Complete overhaul of the widget, added customisation and cleaned up code. Not backwards compatible, as the widget main view is no longer a Window. 
+* 2.0.0 Add Android Support with [ScrollableView widget](https://github.com/jkotchoff/au.<jkotchoff class="scro"></jkotchoff>llableView)
+* 1.0.0 Initial version
+
  
 ## License
 
