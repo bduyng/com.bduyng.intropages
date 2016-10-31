@@ -1,25 +1,11 @@
-"#container[platform=android]": {
-	theme: "Theme.AppCompat.Translucent.NoTitleBar"
-},
-"#view0" : {
-	height : Ti.UI.FILL,
-	width : Ti.UI.FILL,
-	zIndex : 0,
-	opacity : 1
-},
-"#view1" : {
-	height : Ti.UI.FILL,
-	width : Ti.UI.FILL,
-	zIndex : 1,
-	opacity : 1
-},
-"#description" : {
-	bottom : 20,
-	width : '90%',
-	height : "25%",
-	showPagingControl : true,
-	pagingControlColor : "transparent",
-	zIndex : 2,
-	pagingControlBackgroundColor:"transparent",
-	pagingControlDotImage: WPATH("/images/white_paging_control_dot.png")
+"Window[platform=android]": {
+    opacity:         1.0, // Or alpha channel in backgroundColor won't work
+    backgroundImage: null, // Prevent a app-wide Window-background to take over
+    navBarHidden:    true,
+    modal:           false, // Heavy weight on Android,
+    theme:           "Theme.AppCompat.Translucent.NoTitleBar"
+}
+
+"#titlesContainer": {
+    showPagingControl: true
 }

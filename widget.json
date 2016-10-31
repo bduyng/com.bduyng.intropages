@@ -3,14 +3,11 @@
 	"name": "Intro Pages",
 	"description" : "An Alloy widget to create welcome pages like AirBnB application.",
 	"author": "Duy Bao Nguyen",
-	"version": "3.0",
+	"version": "4.0.0",
 	"copyright":"Copyright (c) 2015",
 	"license":"Apache License, Version 2.0",
 	"min-alloy-version": "1.0",
-	"min-titanium-version":"3.5.1",
+	"min-titanium-version":"2.1",
 	"tags":"intro, tutorial, welcome, slide, pages, airbnb",
-	"platforms":"ios,android",
-	"dependencies": {
-      "au.jkotchoff.scrollableView":"1.2.0"
-  }
+	"platforms":"ios, android"
 }

@@ -1,6 +1,0 @@
-<Alloy>
-	<View id="container">
-		<Label id="title" />
-		<Label id="description" />
-	</View>
-</Alloy>

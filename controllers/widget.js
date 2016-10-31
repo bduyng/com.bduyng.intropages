@@ -1,100 +1,108 @@
-var args = arguments[0] || {};
+////////////////////////////////////////////////////////////////////////////////
+// Init
+////////////////////////////////////////////////////////////////////////////////
 
-var images = [];
-var previousIndex = 0;
+(function constructor() {
+    $.lastPage = $.titlesContainer.currentPage;
+    if ($.args.views && $.args.views.length) generateViews($.args.views);
+    else console.error('"views" argument is required.');
+})();
 
-exports.init = function (data) {
-	var views = [];
-	if(OS_ANDROID) {
-		var imageBlob = Ti.UI.createImageView({image: data[0].image}).toBlob();
-		var originalImageWidth = imageBlob.width;
-		var originalImageHeight = imageBlob.height;
-		var heightFullScreen = ((((Ti.Platform.displayCaps.platformWidth) / originalImageWidth) * originalImageHeight) / (Titanium.Platform.displayCaps.dpi / 160));
-		$.view0.height = $.view1.height = heightFullScreen;
-	}
+////////////////////////////////////////////////////////////////////////////////
+// Helpers
+////////////////////////////////////////////////////////////////////////////////
 
-	for (var i = 0, j = data.length; i < j; i++) {
-		// generate image
-		images.push(data[i].image);
-		
-		var content = data[i];
-		
-		if (args.font && !content.font){
-			content.font = args.font;
-		}
-		if (args.color && !content.color){
-			content.color = args.color;
-		}
-		
-		if (args.titleFont && !content.titleFont){
-			content.titleFont = args.titleFont;
-		}
-		if (args.titleColor && !content.titleColor){
-			content.titleColor = args.titleColor;
-		}
+function generateViews(views) {
+    var scrollableChildViews = [];
 
-		// generate scrollableView children
-		var contentView = Widget.createController('contentView', {data: content});
-		
-		views.push(contentView.getView());
-	}
+    for (var i = views.length - 1; i >= 0; i--) {
+        var view = views[i];
+        var title, description;
 
-	$.view0.image = images[1];
-	$.view1.image = images[0];
+        // Add all titles and descriptions into a scrollable view
+        if (view.title) {
+            title = Ti.UI.createLabel({ role: 'title', text: view.title });
+            if ($.args.titles) title.applyProperties($.args.titles);
+        }
 
-	$.description.setViews(views);
-	$.description.addEventListener('scroll', scrollListener);
-	$.description.addEventListener('scrollend', scrollendListener);
-};
+        if (view.description) {
+            description = Ti.UI.createLabel({ role: 'description', text: view.description });
+            if ($.args.descriptions) description.applyProperties($.args.descriptions);
+        }
 
-exports.detach = function () {
-	$.description.removeEventListener('scroll', scrollListener);
-	$.description.removeEventListener('scrollend', scrollendListener);
-};
+        var scrollableChildView = Ti.UI.createView();
+        title && scrollableChildView.add(title);
+        description && scrollableChildView.add(description);
+        scrollableChildViews.push(scrollableChildView);
 
-exports.moveNext = function(){
-	$.description.moveNext();
-};
-exports.movePrevious = function(){
-	$.description.movePrevious();
-};
+        // Generate background image
+        if (view.media) {
+            $['view' + i] = Ti.UI.createImageView({
+                index: i,
+                image: view.media,
+                width: Ti.UI.FILL, height: Ti.UI.FILL
+            });
+        }
 
+        // Add background image into the container in reverse order.
+        // For example, [3, 2, 1]. 1 is the on top view because it is added last.
+        $['view' + i] && $.backgroundsContainer.add($['view' + i]);
+    }
 
-function scrollListener(e) {
-	if (e.currentPageAsFloat.toFixed(2) <= 0 || e.currentPageAsFloat.toFixed(2) >= images.length - 1) return false;
-	var delta = Math.abs(previousIndex - e.currentPageAsFloat).toFixed(2);
-	transition(e.currentPageAsFloat > previousIndex ? previousIndex + 1 : previousIndex - 1, 1 - delta);
+    // Make sure the titles views is added in correct order.
+    // For example, [1, 2, 3]
+    $.titlesContainer.views = scrollableChildViews.reverse();
 }
 
-function scrollendListener(e) {
-	if (previousIndex === e.currentPage) return false;
-	previousIndex = e.currentPage;
+////////////////////////////////////////////////////////////////////////////////
+// Event Handlers
+////////////////////////////////////////////////////////////////////////////////
 
-	$.view0.opacity = Math.round($.view0.opacity);
-	$.view1.opacity = Math.round($.view1.opacity);
+/**
+ * Logic of transition of backgrounds
+ * For example: [3, 2, 1] (1 on top, 3 on bottom), then user is on page 2 currently
+ * if slide forward, we fade out 2 => 3 will be show up
+ * if slide backward, we fade in 1 => 1 will be show up :)
+ */
+function onScroll(e) {
+    // No effect when scrolling out of bound
+    if (e.currentPageAsFloat < 0 ||
+        e.currentPageAsFloat > e.source.views.length - 1
+    ) return false;
 
-	var behind = parseInt($.view0.opacity) === 0 ? $.view0 : $.view1;
-	var front = parseInt($.view0.opacity) === 0 ? $.view1 : $.view0;
+    var delta = e.currentPageAsFloat - Math.floor(e.currentPageAsFloat);
+    if (delta) delta = 1 - delta;
 
-	behind.zIndex = 0;
-	front.zIndex = 1;
-	$.trigger('page', e.currentPage);
+    if (e.currentPageAsFloat > $.lastPage) {
+        // Go forward ==> fade out current page
+        $['view' + $.lastPage].opacity = delta;
+    }
+    else if (e.currentPageAsFloat < $.lastPage) {
+        // Make sure last page index always >= 0
+        // Fade in the previous page
+        var previousPage = !$.lastPage ? 0 : $.lastPage - 1;
+        if (!delta) delta = 1;
+        $['view' + previousPage].opacity = delta;
+    }
+
+    if (e.currentPageAsFloat === e.currentPage) {
+        // when the scrolling is finished
+        $.lastPage = e.currentPage;
+    }
 }
 
-function transition(nextIndex, opacity) {
-	if (nextIndex < 0 || nextIndex > images.length - 1) return false;
-	
-	var front = $.view0.zIndex === 0 ? $.view1 : $.view0;
-	if (front.opacity === opacity) return false;
-	
-	var behind = $.view0.zIndex === 0 ? $.view0 : $.view1;
-	if (behind.opacity !== 1) behind.opacity = 1;
-	if (behind.image !== images[nextIndex]) behind.image = images[nextIndex];
-	
-	front.animate({
-		opacity : opacity
-	}, function (e) {
-		front.opacity = opacity;
-	});
+////////////////////////////////////////////////////////////////////////////////
+// Exports
+////////////////////////////////////////////////////////////////////////////////
+$.open = $.container.open;
+
+$.close = function() {
+    // clean up all listeners
+    $.removeListener();
+
+    $.container.close();
 };
 
+$.moveNext = $.titlesContainer.moveNext;
+
+$.movePrevious = $.titlesContainer.movePrevious;
