@@ -10,7 +10,7 @@ An [Alloy](http://appcelerator.com/alloy) [Widget](http://docs.appcelerator.com/
 ### Screenshot
 ![Screenshot](https://github.com/bduyng/com.bduyng.intropages/blob/test/demo.gif?raw=true)
 
-## Get it [![gitTio](http://gitt.io/badge.png)](http://gitt.io/component/com.bduyng.intropages)[![gitTio](https://img.shields.io/badge/available%20on-npm-red.svg)](https://www.npmjs.com/package/com.bduyng.intropages)
+## Get it [![gitTio](https://img.shields.io/badge/available%20on-gitTio-blue.svg)](http://gitt.io/component/com.bduyng.intropages) [![npmJS](https://img.shields.io/badge/available%20on-npm-red.svg)](https://www.npmjs.com/package/com.bduyng.intropages)
 
 Install via [gitTio](http://gitt.io/component/com.bduyng.intropages):
 
