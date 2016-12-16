@@ -25,7 +25,7 @@ Or download a [release](https://github.com/bduyng/com.bduyng.intropages/releases
             "au.jkotchoff.scrollableView": "*"
             ..
         }
-    }   
+    }
 
 ## Use it
 
@@ -53,13 +53,13 @@ Requires `au.jkotchoff.scrollableView` to be installed too.
                  * @type {[String]}
                  */
                 title: "LOREM IPSUM\nDOLOR SIT",
-                
+
                 /**
                  * This will be secondary text that will further explain the feature.
                  * @type {[String]}
                  */
                 description: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.",
-                
+
                 /**
                  * Local or remote url / can be video or image.
                  * The media which will be shown in the background of the screen.
@@ -101,30 +101,30 @@ Requires `au.jkotchoff.scrollableView` to be installed too.
     $.intro.open();
 
 ## Changelog
-
+* 4.0.1 Bump version.
 * 4.0.0 Rewrite the widget with simple animation logic, better performance.
 * 3.0.0 Complete overhaul of the widget, added customisation and cleaned up code. Not backwards compatible, as the widget main view is no longer a Window.
 * 2.1.0 Fix ImageView aspect ratio in Android
 * 2.0.0 Add Android Support with [ScrollableView widget](https://github.com/jkotchoff/au.<jkotchoff class="scro"></jkotchoff>llableView)
 * 1.0.0 Initial version
 
- 
+
 ## License
 
     The MIT License (MIT)
-    
+
     Copyright (c) 2015 Duy Bao Nguyen
-    
+
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"), to deal
     in the Software without restriction, including without limitation the rights
     to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
     copies of the Software, and to permit persons to whom the Software is
     furnished to do so, subject to the following conditions:
-    
+
     The above copyright notice and this permission notice shall be included in all
     copies or substantial portions of the Software.
-    
+
     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
     IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
     FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
